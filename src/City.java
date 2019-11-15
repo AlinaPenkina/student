@@ -1,12 +1,11 @@
 public class City {
 
-    public City(Integer id, String name) {
-        this.id = id;
-        this.name = name;
-    }
-
     Integer id;
     String name;
+
+    public City() {
+
+    }
 
     public Integer getId() {
         return id;

@@ -2,17 +2,6 @@ import java.util.List;
 
 public class Student {
 
-    private String city;
-    private String name;
-    private String surname;
-    private Integer gpa;
-    private List<Lesson> lessons;
-
-
-    public Student() {
-
-    }
-
     public String getCity() {
         return city;
     }
@@ -20,6 +9,17 @@ public class Student {
     public void setCity(String city) {
         this.city = city;
     }
+
+    private String city;
+    private String name;
+    private String surname;
+    private Integer gpa;
+    private List<Lesson> lessons;
+
+    public Student() {
+
+    }
+
 
     public String getName() {
         return name;
@@ -52,7 +52,6 @@ public class Student {
     public void setLessons(List<Lesson> lessons) {
         this.lessons = lessons;
     }
-
 
     @Override
     public String toString() {
