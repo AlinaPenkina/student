@@ -1,10 +1,11 @@
 public class City {
 
-    Integer id;
-    String name;
+    private Integer id;
+    private String name;
 
-    public City() {
-
+    public City(Integer id, String name) {
+        this.id = id;
+        this.name = name;
     }
 
     public Integer getId() {
