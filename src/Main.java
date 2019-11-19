@@ -17,6 +17,7 @@ public class Main {
         Lesson english = new Lesson(3, "English");
         Lesson psychology = new Lesson(4, "Psychology");
         Lesson discreteMath = new Lesson(5, "Discrete Math");
+        Lesson rocketScience = new Lesson(5, "Rocket Science");
 
         List<Lesson> lessons = new ArrayList<>();
         lessons.add(math);
@@ -96,6 +97,9 @@ public class Main {
         for (Student student : filteredStudents) {
             System.out.println(student);
         }
+        List<Student> filteredByNameStudents = filteredByNameStudents(students);
+        System.out.println("Student with first A");
+        System.out.println(filteredByNameStudents);
     }
 
     public static List<Student> filterStudents(List<Student> students) {
@@ -106,5 +110,16 @@ public class Main {
             }
         }
         return filteredStudents;
+    }
+
+    public static List<Student> filteredByNameStudents(List<Student> students){
+        List<Student> filteredByNameStudents = new ArrayList<>();
+        for(Student student : students){
+            if (student.getName().startsWith("A")){
+               filteredByNameStudents.add(student);
+            }
+        }
+
+        return filteredByNameStudents;
     }
 }
