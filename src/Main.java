@@ -15,7 +15,8 @@ public class Main {
         Lesson math = new Lesson(1, "Math");
         Lesson programming = new Lesson(2, "Programming");
         Lesson english = new Lesson(3, "English");
-        Lesson psychology = new Lesson(3, "English");
+        Lesson psychology = new Lesson(4, "Psychology");
+        Lesson discreteMath = new Lesson(5, "Discrete Math");
 
         List<Lesson> lessons = new ArrayList<>();
         lessons.add(math);
@@ -36,12 +37,56 @@ public class Main {
         isabekLessons.add(programming);
         isabekLessons.add(english);
         isabekLessons.add(psychology);
+
         studentIsabek.setLessons(isabekLessons);
 
+        Student studentSean = new Student();
+        studentSean.setName("Sean");
+        studentSean.setSurname("Mc. Kensey");
+        studentSean.setGpa(70);
+        studentSean.setCity("Oklahoma city");
+
+        List<Lesson> seanLessons = new ArrayList<>();
+        seanLessons.add(math);
+        seanLessons.add(discreteMath);
+        seanLessons.add(english);
+        seanLessons.add(programming);
+
+        studentSean.setLessons(isabekLessons);
+
+        Student studentTom = new Student();
+        studentTom.setName("Tom");
+        studentTom.setSurname("Cruise");
+        studentTom.setGpa(80);
+        studentTom.setCity("Holywood");
+
+        List<Lesson> tomLessons = new ArrayList<>();
+        tomLessons.add(math);
+        tomLessons.add(discreteMath);
+        tomLessons.add(english);
+        tomLessons.add(psychology);
+
+        studentTom.setLessons(seanLessons);
+
+        Student studentMonica = new Student();
+        studentMonica.setName("Monica");
+        studentMonica.setSurname("Bellucci");
+        studentMonica.setGpa(100);
+        studentMonica.setCity("Hollywood");
+
+        List<Lesson> monicaLessons = new ArrayList<>();
+        monicaLessons.add(math);
+        monicaLessons.add(discreteMath);
+        monicaLessons.add(english);
+        monicaLessons.add(psychology);
+
+        studentMonica.setLessons(monicaLessons);
 
         students.add(studentAlina);
         students.add(studentIsabek);
-
+        students.add(studentSean);
+        students.add(studentTom);
+        students.add(studentMonica);
         return students;
     }
 
