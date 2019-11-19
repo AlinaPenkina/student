@@ -83,11 +83,27 @@ public class Main {
 
         studentMonica.setLessons(monicaLessons);
 
+        Student studentAlex = new Student();
+        studentAlex.setName("Alex");
+        studentAlex.setSurname("Mcqueen");
+        studentAlex.setGpa(99);
+        studentAlex.setCity("Hollywood");
+
+        List<Lesson> alexLessons = new ArrayList<>();
+        alexLessons.add(math);
+        alexLessons.add(discreteMath);
+        alexLessons.add(english);
+        alexLessons.add(psychology);
+        alexLessons.add(rocketScience);
+
+        studentMonica.setLessons(monicaLessons);
+
         students.add(studentAlina);
         students.add(studentIsabek);
         students.add(studentSean);
         students.add(studentTom);
         students.add(studentMonica);
+        students.add(studentAlex);
         return students;
     }
 
