@@ -1,16 +1,26 @@
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
+
+import static java.util.stream.Collectors.groupingBy;
+import static java.util.stream.Collectors.mapping;
+import static java.util.stream.Collectors.toList;
 
 public class Main {
 
     public static List<Student> createStudents() {
         List<Student> students = new ArrayList<>();
-
+        City bishkek = new City(1, "Bishkek");
+        City osh = new City(2, "Osh");
+        City oklahomaCity = new City(3, "Oklahoma city");
+        City holywood = new City(4, "Holywood");
         Student studentAlina = new Student();
         studentAlina.setName("Alina");
         studentAlina.setSurname("Penkina");
         studentAlina.setGpa(60);
-        studentAlina.setCity("Bishkek");
+        studentAlina.setCity(bishkek);
 
         Lesson math = new Lesson(1, "Math");
         Lesson programming = new Lesson(2, "Programming");
@@ -30,7 +40,7 @@ public class Main {
         studentIsabek.setName("Isabek");
         studentIsabek.setSurname("Tashiev");
         studentIsabek.setGpa(20);
-        studentIsabek.setCity("Osh");
+        studentIsabek.setCity(osh);
 
 
         List<Lesson> isabekLessons = new ArrayList<>();
@@ -45,7 +55,7 @@ public class Main {
         studentSean.setName("Sean");
         studentSean.setSurname("Mc. Kensey");
         studentSean.setGpa(70);
-        studentSean.setCity("Oklahoma city");
+        studentSean.setCity(oklahomaCity);
 
         List<Lesson> seanLessons = new ArrayList<>();
         seanLessons.add(math);
@@ -59,7 +69,7 @@ public class Main {
         studentTom.setName("Tom");
         studentTom.setSurname("Cruise");
         studentTom.setGpa(80);
-        studentTom.setCity("Holywood");
+        studentTom.setCity(holywood);
 
         List<Lesson> tomLessons = new ArrayList<>();
         tomLessons.add(math);
@@ -73,7 +83,7 @@ public class Main {
         studentMonica.setName("Monica");
         studentMonica.setSurname("Bellucci");
         studentMonica.setGpa(100);
-        studentMonica.setCity("Hollywood");
+        studentMonica.setCity(holywood);
 
         List<Lesson> monicaLessons = new ArrayList<>();
         monicaLessons.add(math);
@@ -87,7 +97,7 @@ public class Main {
         studentAlex.setName("Alex");
         studentAlex.setSurname("Mcqueen");
         studentAlex.setGpa(99);
-        studentAlex.setCity("Hollywood");
+        studentAlex.setCity(holywood);
 
         List<Lesson> alexLessons = new ArrayList<>();
         alexLessons.add(math);
@@ -116,6 +126,8 @@ public class Main {
         List<Student> filteredByNameStudents = filteredByNameStudents(students);
         System.out.println("Student with first A");
         System.out.println(filteredByNameStudents);
+        System.out.println("GroupByCity");
+        System.out.println(groupByCity(students));
     }
 
     public static List<Student> filterStudents(List<Student> students) {
@@ -128,14 +140,33 @@ public class Main {
         return filteredStudents;
     }
 
-    public static List<Student> filteredByNameStudents(List<Student> students){
+    public static List<Student> filteredByNameStudents(List<Student> students) {
         List<Student> filteredByNameStudents = new ArrayList<>();
-        for(Student student : students){
-            if (student.getName().startsWith("A")){
-               filteredByNameStudents.add(student);
+        for (Student student : students) {
+            if (student.getName().startsWith("A")) {
+                filteredByNameStudents.add(student);
             }
         }
 
         return filteredByNameStudents;
+    }
+
+    public static Map<City, List<Student>> groupByCity(List<Student> students) {
+
+        Map<City, List<Student>> result = new HashMap<>();
+        for (Student student: students){
+
+            if(!result.containsKey(student.getCity())) {
+                result.put(student.getCity(), new ArrayList<>());
+            }
+
+            if (result.containsKey(student.getCity())){
+               result.get(student.getCity()).add(student);
+            }
+
+        }
+
+
+        return result;
     }
 }

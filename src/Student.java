@@ -2,15 +2,11 @@ import java.util.List;
 
 public class Student {
 
-    public String getCity() {
+    public City getCity() {
         return city;
     }
 
-    public void setCity(String city) {
-        this.city = city;
-    }
-
-    private String city;
+    private City city;
     private String name;
     private String surname;
     private Integer gpa;
@@ -67,5 +63,9 @@ public class Student {
 
     public String getFullname() {
         return this.getName() + " " + this.getSurname();
+    }
+
+    public void setCity(City city) {
+        this.city = city;
     }
 }
